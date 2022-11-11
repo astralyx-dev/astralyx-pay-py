@@ -16,6 +16,13 @@ class Invoices:
             return False
     
     def createInvoice(self, user_wallet, amount, callback_url):
+        """
+        Creating Invoice
+        
+        :param user_wallet: String with user wallet
+        :param amount: Amount in TON
+        :param callback_url: String in base64 with callback url
+        """
         return self.make_request("createInvoice", {
             "sender": user_wallet, 
             "amount": amount, 
