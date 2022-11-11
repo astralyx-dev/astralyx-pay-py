@@ -2,14 +2,14 @@ import requests
 
 class Invoices:
 
-    payment_domain = "https://pay.astralyx.dev/"
+    payment_domain = "https://pay.astralyx.dev"
 
     def __init__(self, token):
         self.token = token
 
     def make_request(self, method, parameters):
         parameters['token'] = self.token
-        res = requests.get(f"https://pay.astralyx.dev/api/{method}", params=parameters)
+        res = requests.get(f"{payment_domain}/api/{method}", params=parameters)
         if res.status_code == 200:
             return res.json()
         else:
